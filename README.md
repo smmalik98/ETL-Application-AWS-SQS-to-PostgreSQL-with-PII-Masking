@@ -102,19 +102,19 @@ python app.py
 ```
 ## Design Decisions
 
-1. Reading Messages from the Queue:
+1. **Reading Messages from the Queue:**
 Using boto3 library to interact with AWS SQS.
 
-2. Data Structures:
+2. **Data Structures:**
 JSON for incoming data, dictionaries for intermediate processing, and a structured object for database insertion.
 
-3. Masking PII:
+3. **Masking PII:**
 Hashing device_id and ip fields to mask PII while preserving the ability to identify duplicates.
 
-4. Connecting to Postgres:
+4. **Connecting to Postgres:**
 Using psycopg2 library for database interactions.
 
-5. Application Runtime:
+5. **Application Runtime:**
 The application runs locally in a Docker environment for easy setup and testing.
 
 ## Handling PII
@@ -155,9 +155,9 @@ The "Error 500" issue is attributable to the outdated Localstack version, which 
 
 ## Next Steps
 
-#### Deployment and Scalability
+### Deployment and Scalability
 
-### Production Deployment
+#### Production Deployment
 
 - **Containerization:** Use Docker to ensure the application runs the same way in any environment.
 - **Orchestration:** Use Kubernetes to manage and scale the Docker containers efficiently.
@@ -166,7 +166,7 @@ The "Error 500" issue is attributable to the outdated Localstack version, which 
 - **Unit Tests:** Write unit tests for each function and integration tests for the entire ETL process to ensure everything works correctly.
 - **CI/CD Pipeline:** Set up an automated pipeline using CI/CD tools to run tests and deploy the application seamlessly.
 
-### Scaling with Growing Dataset
+#### Scaling with Growing Dataset
 
 - **Queue Management:** Use AWS SQS with Auto Scaling to handle more messages as the load increases.
 - **Database Scaling:** Use read replicas and partitioning in PostgreSQL to improve database performance and handle more data.
