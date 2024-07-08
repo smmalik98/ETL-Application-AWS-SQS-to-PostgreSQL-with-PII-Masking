@@ -38,7 +38,7 @@ Throughout the project, you'll encounter and solve various technical challenges,
 ```bash
 git clone https://github.com/yourusername/ETL-Application-AWS-SQS-to-PostgreSQL-with-PII-Masking.git
 cd ETL-Application-AWS-SQS-to-PostgreSQL-with-PII-Masking
-
+```
 ### Docker Setup
 
 1. Ensure Docker and Docker Compose are installed on your machine.
@@ -60,19 +60,19 @@ services:
     platform: linux/amd64
     ports:
       - 5432:5432
-
+```
 3. Start the docker container
 
 ```bash
 docker-compose up -d
-
+```
 ### Verify Setup
 
 1. Access Localstack SQS Queue:
 
 ```bash
 awslocal sqs receive-message --queue-url http://localhost:4566/000000000000/login-queue
-
+```
 2. Access Postgres Database:
 
 ```bash
@@ -80,7 +80,7 @@ psql -d postgres -U postgres -p 5432 -h localhost -W
 # Password: postgres
 # Verify table creation:
 SELECT * FROM user_logins;
-
+```
 ## Running the Application
 
 ### Install Dependencies
@@ -89,17 +89,17 @@ Ensure you have Python installed. Then, install the required Python packages:
 
 ```bash
 pip install -r requirements.txt
-
+```
 ```bash
 brew install postgresql
-
+```
 ### Run the ETL Application
 
 Execute the script to read from the SQS queue, transform the data, and write to the Postgres database:
 
 ```bash
 python app.py
-
+```
 ## Design Decisions
 
 1. Reading Messages from the Queue:
