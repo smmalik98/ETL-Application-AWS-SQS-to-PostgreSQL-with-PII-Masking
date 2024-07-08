@@ -90,9 +90,7 @@ Ensure you have Python installed. Then, install the required Python packages:
 ```bash
 pip install -r requirements.txt
 ```
-```bash
-brew install postgresql
-```
+
 ### Run the ETL Application
 
 Execute the script to read from the SQS queue, transform the data, and write to the Postgres database:
