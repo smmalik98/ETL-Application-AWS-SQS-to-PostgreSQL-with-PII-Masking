@@ -215,7 +215,7 @@ Given that I am not the maintainer of the Localstack Docker image, I could not p
 
 #### Conclusion
 
-The "Error 500" issue is attributable to the outdated Localstack version, which lacks support for necessary JSON functionalities. The Localstack image specified in the provided `docker-compose.yaml` is insufficient for the operations required by this project. To resolve this issue, the Localstack image must be updated to version 3.0 or higher, which supports the required JSON functionalities and avoids the internal server errors.
+The "Error 500" issue is attributable to the outdated Localstack version, which lacks support for necessary JSON functionalities. The Localstack image specified in the provided `docker-compose.yaml` was insufficient for the operations required by this project. As soon as this issue was resolved, i.e., the Localstack image was updated to version 3.0 or higher, which supports the required JSON functionalities and avoids the internal server errors the SQS queue was set and the required transformed results were written to the Postgres Database
 
 ## Next Steps
 
