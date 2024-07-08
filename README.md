@@ -153,7 +153,15 @@ You should see the following result in your terminal:
 --------------------------------------+-------------+------------------------------------------------------------------+------------------------------------------------------------------+--------+-------------+-------------
  424cdd21-063a-43a7-b91b-7ca1a833afae | android     | a6d0e2f27f6111e10b06790db42f34123e724aa0fd24b280f4a0ef5ee986784c | 4f00c1a807b673887c7af517d0df68e6b41aecf8cbec26c71fe4c580664669ed | RU     | 2.3.0       | 
  c0173198-76a8-4e67-bfc2-74eaa3bbff57 | ios         | 7b03f7d723535706b4777384fc906d18a4376bb84cebb50dc22c6eb9bddf00cb | a857e702f98990716938a0d74c3dc2dc565e4448833e2cf91c6ab26fc0e9971f | PH     | 0.2.6       | 
- 66e0635b-ce36-4ec7-aa9e-8a8fca9b83d4 | ios         | fa7fca28c658d75a751b60e262602e1b11f4149274af6ec0d8c82a8619a51437 | e84fb3e15175d0a2492de6c02a99595c1343db73:
+ 66e0635b-ce36-4ec7-aa9e-8a8fca9b83d4 | ios         | fa7fca28c658d75a751b60e262602e1b11f4149274af6ec0d8c82a8619a51437 | e84fb3e15175d0a2492de6c02a99595c1343db7321ad6bb5f62052edd00a84f8 |        | 2.2.1       | 
+ 181452ad-20c3-4e93-86ad-1934c9248903 | android     | b21d1c922d9e9d1b913ade3265baa7fc43c757976dcd7cac3ed2043176655396 | 94b571f680b8f41547047f24e385334265773d33ab643bfc6f1684e21b8b34d9 | ID     | 0.96        | 
+ 60b9441c-e39d-406f-bba0-c7ff0e0ee07f | android     | 587f5a111a1f2adb462f778574a91b93de3b29889deca6e25dd363588a5e0ccb | 3102ec6d1310b3db007305eaa5802b3831d4b4ae5f165e21ee1e3298f55e5616 | FR     | 0.4.6       | 
+ 5082b1ae-6523-4e3b-a1d8-9750b4407ee8 | android     | 8ff1dcf25f4b6b831000c6af50fe0ca5c03b8db525d3c8b955531d20e5904457 | 8d99f03f520c4faaf8cc1b0c2fcb88f9ece87e7984ca36bdb7feb98d53ba023d |        | 3.7         | 
+ 5bc74293-3ca1-4f34-bb89-523887d0cc2f | ios         | 4535674cdeafe9e1bbc4792de6891ddf6a6c21c7accd8087036402aefc7dc31e | facaa527add19a6ad0a9d3bc806b80e6e8b9cb2fcdedf4122ddc352035022832 | PT     | 2.2.8       | 
+ 92d8ceec-2e12-49f3-81bd-518fe66971ec | android     | befc41fae56d97b40286a8ca77c179ae8e513388c74a73608c234463a1cb7d5c | 19ca7209461ccf164747bc93d56efb2f16fc3f14b1e3cf404dc157746adb7063 | BR     | 0.5.5       | 
+ 05e153b1-4fa1-474c-bd7e-9f74d1c495e7 | android     | 0d7f5fae97d2b525c78ce18b97fc4eb814e54c3874917aaaefc5ee15802c457e | bd1bcce6493944b297b2e9d87163d7aa01856c8f23f1a660152e5c8ed54d85eb |        | 0.5.0       | 
+ 325c0f3d-da25-45ff-aff4-81816db069bc | android     | 5f1bb1f8901076482ca745b88ef02071bcf0abc887eabdb1d1a6c8b47dcdd841 | 16efd8b6baabc95d04083e6d573aa6aa95a0dba3f4ee594d1ed3f60ddd909b19 | RU     | 0.60        | 
+(10 rows)
 ```
 
 ## Design Decisions
