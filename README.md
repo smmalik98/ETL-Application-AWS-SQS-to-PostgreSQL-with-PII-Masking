@@ -77,7 +77,7 @@ awslocal sqs receive-message --queue-url http://localhost:4566/000000000000/logi
 
 ```bash
 psql -d postgres -U postgres -p 5432 -h localhost -W
-# Password: postgres
+# Password: ********
 # Verify table creation:
 SELECT * FROM user_logins;
 ```
