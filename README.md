@@ -100,6 +100,62 @@ Execute the script to read from the SQS queue, transform the data, and write to 
 ```bash
 python app.py
 ```
+
+After running the above code you should expect the following output in your terminal:
+```
+(pii) smitmalik@x86_64-apple-darwin13 pii % python app.py
+Starting application...
+Altered app_version column type to varchar.
+Attempting to fetch messages from SQS queue...
+Received response from SQS.
+Number of messages received: 10
+Processing message: {'user_id': '424cdd21-063a-43a7-b91b-7ca1a833afae', 'app_version': '2.3.0', 'device_type': 'android', 'ip': '199.172.111.135', 'locale': 'RU', 'device_id': '593-47-5928'}
+Data inserted for user_id: 424cdd21-063a-43a7-b91b-7ca1a833afae
+Processing message: {'user_id': 'c0173198-76a8-4e67-bfc2-74eaa3bbff57', 'app_version': '0.2.6', 'device_type': 'ios', 'ip': '241.6.88.151', 'locale': 'PH', 'device_id': '104-25-0070'}
+Data inserted for user_id: c0173198-76a8-4e67-bfc2-74eaa3bbff57
+Processing message: {'user_id': '66e0635b-ce36-4ec7-aa9e-8a8fca9b83d4', 'app_version': '2.2.1', 'device_type': 'ios', 'ip': '130.111.167.54', 'locale': None, 'device_id': '127-42-0862'}
+Data inserted for user_id: 66e0635b-ce36-4ec7-aa9e-8a8fca9b83d4
+Processing message: {'user_id': '181452ad-20c3-4e93-86ad-1934c9248903', 'app_version': '0.96', 'device_type': 'android', 'ip': '118.79.6.245', 'locale': 'ID', 'device_id': '190-44-3099'}
+Data inserted for user_id: 181452ad-20c3-4e93-86ad-1934c9248903
+Processing message: {'user_id': '60b9441c-e39d-406f-bba0-c7ff0e0ee07f', 'app_version': '0.4.6', 'device_type': 'android', 'ip': '223.31.97.46', 'locale': 'FR', 'device_id': '149-99-5185'}
+Data inserted for user_id: 60b9441c-e39d-406f-bba0-c7ff0e0ee07f
+Processing message: {'user_id': '5082b1ae-6523-4e3b-a1d8-9750b4407ee8', 'app_version': '3.7', 'device_type': 'android', 'ip': '235.167.63.6', 'locale': None, 'device_id': '346-96-4168'}
+Data inserted for user_id: 5082b1ae-6523-4e3b-a1d8-9750b4407ee8
+Processing message: {'user_id': '5bc74293-3ca1-4f34-bb89-523887d0cc2f', 'app_version': '2.2.8', 'device_type': 'ios', 'ip': '240.162.230.101', 'locale': 'PT', 'device_id': '729-06-2799'}
+Data inserted for user_id: 5bc74293-3ca1-4f34-bb89-523887d0cc2f
+Processing message: {'user_id': '92d8ceec-2e12-49f3-81bd-518fe66971ec', 'app_version': '0.5.5', 'device_type': 'android', 'ip': '194.99.130.72', 'locale': 'BR', 'device_id': '762-96-1217'}
+Data inserted for user_id: 92d8ceec-2e12-49f3-81bd-518fe66971ec
+Processing message: {'user_id': '05e153b1-4fa1-474c-bd7e-9f74d1c495e7', 'app_version': '0.5.0', 'device_type': 'android', 'ip': '163.2.96.136', 'locale': None, 'device_id': '431-77-3545'}
+Data inserted for user_id: 05e153b1-4fa1-474c-bd7e-9f74d1c495e7
+Processing message: {'user_id': '325c0f3d-da25-45ff-aff4-81816db069bc', 'app_version': '0.60', 'device_type': 'android', 'ip': '172.99.101.28', 'locale': 'RU', 'device_id': '649-26-7827'}
+Data inserted for user_id: 325c0f3d-da25-45ff-aff4-81816db069bc
+
+Contents of user_logins table:
+
+user_id | device_type | masked_ip | masked_device_id | locale | app_version | create_date
+424cdd21-063a-43a7-b91b-7ca1a833afae | android | a6d0e2f27f6111e10b06790db42f34123e724aa0fd24b280f4a0ef5ee986784c | 4f00c1a807b673887c7af517d0df68e6b41aecf8cbec26c71fe4c580664669ed | RU | 2.3.0 | None
+c0173198-76a8-4e67-bfc2-74eaa3bbff57 | ios | 7b03f7d723535706b4777384fc906d18a4376bb84cebb50dc22c6eb9bddf00cb | a857e702f98990716938a0d74c3dc2dc565e4448833e2cf91c6ab26fc0e9971f | PH | 0.2.6 | None
+66e0635b-ce36-4ec7-aa9e-8a8fca9b83d4 | ios | fa7fca28c658d75a751b60e262602e1b11f4149274af6ec0d8c82a8619a51437 | e84fb3e15175d0a2492de6c02a99595c1343db73:
+```
+
+To check if the data has been loaded in your postgres database try:
+
+```bash
+psql -d postgres -U postgres -p 5432 -h localhost -W
+# Password: ********
+# Verify table creation:
+SELECT * FROM user_logins;
+```
+You should see the following result in your terminal:
+
+```bash
+               user_id                | device_type |                            masked_ip                             |                         masked_device_id                         | locale | app_version | create_date 
+--------------------------------------+-------------+------------------------------------------------------------------+------------------------------------------------------------------+--------+-------------+-------------
+ 424cdd21-063a-43a7-b91b-7ca1a833afae | android     | a6d0e2f27f6111e10b06790db42f34123e724aa0fd24b280f4a0ef5ee986784c | 4f00c1a807b673887c7af517d0df68e6b41aecf8cbec26c71fe4c580664669ed | RU     | 2.3.0       | 
+ c0173198-76a8-4e67-bfc2-74eaa3bbff57 | ios         | 7b03f7d723535706b4777384fc906d18a4376bb84cebb50dc22c6eb9bddf00cb | a857e702f98990716938a0d74c3dc2dc565e4448833e2cf91c6ab26fc0e9971f | PH     | 0.2.6       | 
+ 66e0635b-ce36-4ec7-aa9e-8a8fca9b83d4 | ios         | fa7fca
+```
+
 ## Design Decisions
 
 1. **Reading Messages from the Queue:**
