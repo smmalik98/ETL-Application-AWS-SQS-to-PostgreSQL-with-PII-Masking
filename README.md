@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the ETL Application project! This project is designed to showcase your ability to build a small application that reads data from an AWS SQS Queue, masks sensitive information, transforms the data, and writes it to a Postgres database. The entire setup is orchestrated using Docker to ensure a consistent and isolated environment for running the components locally.
+Welcome to the ETL Application project! This project is designed to showcase the ability to build a small application that reads data from an AWS SQS Queue, masks sensitive information, transforms the data, and writes it to a Postgres database. The entire setup is orchestrated using Docker to ensure a consistent and isolated environment for running the components locally.
 
 This README will guide you through the entire process, from setting up your environment to running the application. It also includes details on the design decisions made during development, how to handle potential issues, and suggestions for deploying the application in a production environment. Whether you are a technical evaluator or someone with limited technical background, this document aims to make the process as smooth and understandable as possible.
 
